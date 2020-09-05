@@ -1,0 +1,67 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+<div class="row">
+  <div class="col-12">
+    <h2 class="content-header">Magasin pièce des rechanges </h2>
+  </div>
+</div>
+<section id="extended">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                    </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">                    
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" 
+                                                style="width: 99.5% !important;" class="table table-responsive-sm table-bordered table-striped table-sm">
+                     
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Description_panne</th>
+                                <th>Date</th>
+                                <th>Priorite</th>
+                                <th>Etat</th>
+                                <th>Technicien</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let demande of demandes">
+                                <td>{{demande.id}}</td>
+
+                                <td>
+                                  {{demande.description_panne}}
+                              </td>
+                                <td>
+                                    {{demande.date}}
+                                </td>
+                                <td>{{demande.priorite}}</td>
+                                <td>{{demande.etat}}</td>
+                                <td>{{demande.nom}} {{demande.prenom}}</td>
+                                <td>{{demande.role}}</td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+<!--Extended Table Ends-->
+<!--Shopping cart starts-->
+
+<!--Shopping cart ends-->
+      </div>
+    </div>
+  </div>
+
+ 
+</div>

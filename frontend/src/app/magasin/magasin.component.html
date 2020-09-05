@@ -1,0 +1,70 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+<div class="row">
+  <div class="col-12">
+    <h2 class="content-header">Magasin pièce des rechanges </h2>
+  </div>
+</div>
+<section id="extended">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <a class="btn btn-primary" [routerLink]="['/add-magasin']">Ajouter</a>
+                    </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Code</th>
+                                <th>Nom</th>
+                                <th>prix</th>
+                                <th>Date entree</th>
+                                <th>Date sortie</th>
+                                <th *ngIf="type != 'admin'">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let magasin of magasins">
+                                <td>{{magasin.id}}</td>
+                                <td>
+                                    {{magasin.code}}
+                                </td>
+                                <td>{{magasin.nom}}</td>
+                                <td>{{magasin.prix}}</td>
+                                <td>{{magasin.date_entre}}</td>
+                                <td>{{magasin.date_sortie}}</td>
+                                <td *ngIf="type != 'admin'">
+                                    <a class="success p-0" data-original-title="" (click)="EditMagasin(magasin)" title="">
+                                        <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                                    </a>
+                                    
+                                    <a class="danger p-0" (click)="deleteMagasin(magasin.id)" data-original-title="" title="">
+                                        <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+<!--Extended Table Ends-->
+<!--Shopping cart starts-->
+
+<!--Shopping cart ends-->
+      </div>
+    </div>
+  </div>
+
+ 
+</div>

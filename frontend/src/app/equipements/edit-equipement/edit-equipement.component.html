@@ -1,0 +1,86 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="content-header">Liste Employees</h2>
+          </div>
+        </div>
+        <div class="row match-height">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap bar-warning">
+                  <h4 class="card-title" id="basic-layout-form-center">Event Registration</h4>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                <div class="px-3">
+                  <form [formGroup]="equipForm" (ngSubmit)="onSubmit()">
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-6">
+                        <div class="form-body">
+
+                          <div class="form-group">
+                            <label for="eventInput1"> Nom </label>
+                            <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+                            <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom.errors.required">nom is required</div>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label for="eventInput1"> Code</label>
+                            <input type="text" formControlName="code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.code.errors }" />
+                            <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                                <div *ngIf="f.code.errors.required">code is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput2">etat</label>
+                            <input type="text" formControlName="etat" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.etat.errors }" />
+                            <div *ngIf="submitted && f.etat.errors" class="invalid-feedback">
+                                <div *ngIf="f.etat.errors.required">etat is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput3">Date_acquisition</label>
+                            <input type="date" formControlName="date_acquisition" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date_acquisition.errors }" />
+                            <div *ngIf="submitted && f.date_acquisition.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_acquisition.errors.required">date_acquisition is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput4">Date_mise_en_service</label>
+                            <input type="date" formControlName="date_mise_en_service" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date_mise_en_service.errors }" />
+                            <div *ngIf="submitted && f.date_mise_en_service.errors" class="invalid-feedback">
+                                <div *ngIf="f.v.errors.required">date_mise_en_service is required</div>
+                            </div>
+                          </div>
+
+                      
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-actions center">
+                      <a [routerLink]="['/equipements']" class="btn btn-danger mr-1">
+                        <i class="icon-trash"></i> Annuler
+                      </a>
+                      <button class="btn btn-primary mr-1">Ajouter</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

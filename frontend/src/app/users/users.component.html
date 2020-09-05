@@ -1,0 +1,75 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+<div class="row">
+  <div class="col-12">
+    <h2 class="content-header">Liste Employees</h2>
+  </div>
+</div>
+<section id="extended">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                    <div class="card-title-wrap bar-success">
+                        <a class="btn btn-primary" [routerLink]="['/add-user']">Ajouter</a>
+                    </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                  <h2 style="text-align:center;padding:10px 0;">Liste utilisateurs</h2>
+                  <div class="">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" 
+                                                style="width: 99.5% !important;" class="table table-responsive-sm table-bordered table-striped table-sm">
+                                            
+                      <thead>
+                        <tr>
+                          <th>ID</th>
+                          <th>Nom</th>
+                          <th>Prenom</th>
+                          <th>Email</th>
+                          <th>Adresse</th>
+                          <th>Grade</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody  >
+                       <tr *ngFor="let user of users">
+                             <td>{{user.id}}</td>
+                             <td>{{user.nom}}</td>
+                             <td>{{user.prenom}}</td>
+                             <td>{{user.email}}</td>
+                             <td>{{user.adresse}}</td>
+                             <td>{{user.type}}</td>
+                             <td>
+                                    <a class="success p-0" data-original-title="" (click)="EditUser(user)" title="">
+                                        <i class="fa fa-pencil font-medium-3 mr-2"></i>
+                                    </a>
+                                    
+                                    <a class="danger p-0" (click)="deleteUser(user.id)" data-original-title="" title="">
+                                        <i class="fa fa-trash-o font-medium-3 mr-2"></i>
+                                    </a>
+                                </td>
+                         </tr>
+                      </tbody>
+                    </table>
+                    
+                    
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+<!--Extended Table Ends-->
+<!--Shopping cart starts-->
+
+<!--Shopping cart ends-->
+      </div>
+    </div>
+  </div>
+
+ 
+</div>

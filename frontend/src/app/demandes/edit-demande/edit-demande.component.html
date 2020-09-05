@@ -1,0 +1,89 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="content-header">Liste Employees</h2>
+          </div>
+        </div>
+        <div class="row match-height">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap bar-warning">
+                  <h4 class="card-title" id="basic-layout-form-center">Event Registration</h4>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                <div class="px-3">
+                  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">              
+                        <div class="form-group col-5">
+                            <label>description panne</label>
+                            <input type="text" formControlName="description_panne" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description_panne.errors }" />
+                            <div *ngIf="submitted && f.description_panne.errors" class="invalid-feedback">
+                                <div *ngIf="f.description_panne.errors.required">description_panne is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-5">
+                            <label>date</label>
+                            <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                            <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                                <div *ngIf="f.date.errors.required">date is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-5">
+                        <label>priorite</label>
+                        <input type="text" formControlName="priorite" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.priorite.errors }" />
+                        <div *ngIf="submitted && f.priorite.errors" class="invalid-feedback">
+                            <div *ngIf="f.priorite.errors.required">priorite is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-5">
+                      <label>role</label><br>
+                      
+                        <input type="radio" formControlName="role" id="role" class="form-check-input" 
+                        [ngClass]="{ 'is-invalid': submitted && f.role.errors }" name="role" value="mecanicien" />
+                        <label for="role" class="form-check-label">mecanicien</label><br>
+                        <input type="radio" formControlName="role" id="role" class="form-check-input" 
+                        [ngClass]="{ 'is-invalid': submitted && f.role.errors }"  name="role" value="electricien" />
+                        <label for="role" class="form-check-label">electricien</label><br>
+                        <input type="radio" formControlName="role" id="role" class="form-check-input" 
+                        [ngClass]="{ 'is-invalid': submitted && f.role.errors }"  name="role" value="informaticien" />
+                        <label for="role" class="form-check-label">informaticien</label>
+                        <div *ngIf="submitted && f.role.errors" class="invalid-feedback">
+                          Role is required
+                        </div>
+                    </div>
+                    <div class="form-group  col-5 ">
+                      <label>Equipement</label>
+                      <select formControlName="id_equipement" class="form-control" name="id_equipement"
+                      [ngClass]="{ 'is-invalid': submitted && f.id_equipement.errors }">
+                      <option value=""></option>
+                      <option *ngFor="let equip of equipements" value="{{equip.id}}"> {{equip.nom}}</option>
+                      </select>
+                      <div *ngIf="submitted && f.id_equipement.errors" class="invalid-feedback">
+                          <div *ngIf="f.id_equipement.errors.required">equipement is required</div>
+                      </div>
+                    </div>
+                    <input type="hidden" formControlName="user_id" class="form-control" >
+                    <div class="text-center">
+                        <button class="btn btn-primary mr-1">Ajouter</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+                    </div>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

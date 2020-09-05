@@ -1,0 +1,87 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="content-header">Planning</h2>
+          </div>
+        </div>
+        <div class="row match-height">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap bar-warning">
+                  <h4 class="card-title" id="basic-layout-form-center">Event Registration</h4>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                <div class="px-3">
+                  <form class="form" [formGroup]="planningForm" (ngSubmit)="onSubmit()">
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-6">
+                        <div class="form-body">
+                          
+                          <div class="form-group">
+                            <label for="eventInput1"> Date</label>
+                            <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                            <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                                <div *ngIf="f.date.errors.required">date is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput2">Action</label>
+                            <input type="text" formControlName="action" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.action.errors }" />
+                            <div *ngIf="submitted && f.action.errors" class="invalid-feedback">
+                                <div *ngIf="f.action.errors.required">action is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput3">Equipement</label>
+                            <select formControlName="equipement_id" class="form-control" name="equipement_id"
+                            [ngClass]="{ 'is-invalid': submitted && f.equipement_id.errors }">
+                            <option value=""></option>
+                            <option *ngFor="let equip of equipements" value="{{equip.id}}"> {{equip.nom}}</option>
+                            </select>
+                            <div *ngIf="submitted && f.equipement_id.errors" class="invalid-feedback">
+                                <div *ngIf="f.equipement_id.errors.required">equipement is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput3">Technicien</label>
+                           <select formControlName="id_technicien" class="form-control" name="id_technicien"
+                            [ngClass]="{ 'is-invalid': submitted && f.id_technicien.errors }">
+                            <option value=""></option>
+                            <option *ngFor="let equip of equipements" value="{{equip.id}}"> {{equip.nom}}</option>
+                            </select>
+                            <div *ngIf="submitted && f.id_technicien.errors" class="invalid-feedback">
+                                <div *ngIf="f.id_technicien.errors.required">equipement is required</div>
+                            </div>
+                          </div>
+
+                      
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-actions center">
+                      <a [routerLink]="['/maintenance']" class="btn btn-danger mr-1">
+                        <i class="icon-trash"></i> Annuler
+                      </a>
+                      <button class="btn btn-primary mr-1">Ajouter</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

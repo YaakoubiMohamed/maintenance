@@ -1,0 +1,20 @@
+#notif{
+    width:40%;
+    height: 50px;
+    background-color: lightblue;  
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+#left{
+    width:70%;
+    float: left;
+}
+#right{
+    width:25%;
+    float: left;
+}
+#close{
+    width:5%;
+    float: right;
+}

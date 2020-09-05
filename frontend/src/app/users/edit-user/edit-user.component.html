@@ -1,0 +1,100 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="content-header">Liste Employees</h2>
+          </div>
+        </div>
+        <div class="row match-height">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap bar-warning">
+                  <h4 class="card-title" id="basic-layout-form-center">Event Registration</h4>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                <div class="px-3">
+
+                  <form class="form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-6">
+                        <div class="form-body">
+                          <div class="form-group">
+                            <label for="eventInput1"> Nom</label>
+                            <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+                            <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom.errors.required">nom is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput2">Prenom</label>
+                            <input type="text" formControlName="prenom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }" />
+                            <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+                                <div *ngIf="f.prenom.errors.required">prenom is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput3">Email</label>
+                            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">email is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput4">Mot de passe</label>
+                            <input type="text" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">password is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput5">Adresse</label>
+                            <input type="text" formControlName="adresse" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }" />
+                            <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+                                <div *ngIf="f.adresse.errors.required">adresse is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput5">Type</label>
+                            <select formControlName="type" class="form-control" name="type"
+                            [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+                            <option value="technicien">mecanicien</option>
+                            <option value="technicien">electricien</option>
+                            <option value="responsable magasin">responsable magasin</option>
+                            <option value="responsable bureau">responsable bureau </option>
+                            <option value="ouvrier">ouvrier </option>
+                            </select>
+                            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                                <div *ngIf="f.type.errors.required">equipement is required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-actions center">
+                      <a [routerLink]="['/users']" class="btn btn-danger mr-1">
+                        <i class="icon-trash"></i> Annuler
+                      </a>
+                      <button class="btn btn-primary mr-1">Ajouter</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

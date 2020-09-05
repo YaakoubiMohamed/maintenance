@@ -1,0 +1,63 @@
+<div data-active-color="white" data-background-color="aqua-marine" data-image="../../../assets/app-assets/img/sidebar-bg/02.jpg" class="app-sidebar">
+  <div class="sidebar-header">
+    <div class="logo clearfix"><a href="index.html" class="logo-text float-left">
+        <div class="logo-img"><img src="../../../assets/app-assets/img/logo.png" alt="Convex Logo"/></div><span class="text align-middle">CONVEX</span></a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="ft-disc toggle-icon"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-circle"></i></a></div>
+  </div>
+  <div class="sidebar-content">
+    <div class="nav-container">
+      <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+        <li class="nav-item">
+          <a [routerLink]="['/home']">
+          <i class="icon-home"></i>
+          <span data-i18n="" class="menu-title">Accueil</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="type == 'admin'">
+          <a [routerLink]="['/users']">
+          <i class="icon-users"></i>
+          <span data-i18n="" class="menu-title" >Utilisateur</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="type != 'mecanicien' && type != 'electricien'">
+          <a [routerLink]="['/demandes']">
+          <i class="icon-book-open"></i>
+          <span data-i18n="" class="menu-title">Demandes</span>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="type == 'mecanicien' || type == 'electricien'">
+          <a [routerLink]="['/demandestech']">
+          <i class="icon-book-open"></i>
+          <span data-i18n="" class="menu-title" >Demandes</span>
+          </a>
+        </li>
+
+        <li class="nav-item"*ngIf="type == 'admin' || type == 'mecanicien' || type == 'electricien'">
+          <a [routerLink]="['/rapports']">
+          <i class="icon-book-open"></i>
+          <span data-i18n="" class="menu-title">Rapports</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="type == 'admin' || type == 'responsable bureau'">
+          <a [routerLink]="['/maintenance']">
+          <i class="icon-calendar"></i>
+          <span data-i18n="" class="menu-title">Planing</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="type == 'admin' || type == 'responsable magasin'">
+          <a [routerLink]="['/magasin']">
+          <i class="icon-calendar"></i>
+          <span data-i18n="" class="menu-title">Magasin</span>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="type == 'admin' || type == 'responsable bureau'">
+          <a [routerLink]="['/equipements']">
+          <i class="icon-calendar"></i>
+          <span data-i18n="" class="menu-title">Equippements</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="sidebar-background"></div>
+</div>

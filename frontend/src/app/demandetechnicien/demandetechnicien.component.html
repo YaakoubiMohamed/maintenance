@@ -1,0 +1,108 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+<div class="row">
+  <div class="col-12">
+    <h2 class="content-header">Magasin pièce des rechanges </h2>
+  </div>
+</div>
+<section id="extended">
+  <div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+              <div class="card-title-wrap bar-success">
+                <a class="btn btn-primary" [routerLink]="['/add-demande']">Ajouter</a>
+            </div>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table row-border hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Description_panne</th>
+                            <th>Date</th>
+                            <th>Priorite</th>
+                            <th>Etat</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let demande of demandes" >
+                            <td  *ngIf='demande.role === type'>
+                              <span>{{demande.id}}</span>
+                            </td>
+
+                            <td *ngIf='demande.role === type'>
+                              <span > {{demande.description_panne}}</span>
+                          </td>
+                            <td *ngIf='demande.role === type'>
+                              <span > {{demande.date}}</span>
+                            </td>
+                            <td *ngIf='demande.role === type'>
+                              <span >  {{demande.priorite}}</span>
+                            </td>
+                            <td *ngIf='demande.role === type'>
+                              <span > {{demande.etat}}</span>
+
+                            </td>
+                            <td *ngIf='demande.role === type'>
+                              <span > {{demande.role}}</span>
+
+                            </td>
+                            <td *ngIf='demande.role === type'>
+                              <ng-template #mymodal let-modal>
+                                <div class="modal-header">
+                                  <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+                                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="form-body">
+                                    <div class="form-group">
+                                      <label for="eventInput1"> Description panne </label>
+                                      <textarea id="eventInput1" class="form-control" required [(ngModel)]="action" name="action"> </textarea>
+                                    </div>
+                                    
+                                  <input type="hidden" id="eventInput1" class="form-control" required [(ngModel)]="demande.date" name="date">
+                                  <input type="hidden" id="eventInput1" class="form-control" required [(ngModel)]="demande.description_panne" name="description_panne">
+                                  <input type="hidden" id="eventInput1" class="form-control" required [(ngModel)]="date_fin" name="date_fin">
+                                  <input type="hidden" id="eventInput2" class="form-control" [(ngModel)]="demande.priorite" name="priorite">
+                                  <input type="hidden" id="eventInput2" class="form-control" [(ngModel)]="demande.id_equipement" name="id_equipement">
+                                  <input type="hidden" id="eventInput2" class="form-control" [(ngModel)]="demande.user_id" name="user_id">
+                                  <input type="hidden" id="eventInput4" class="form-control" [(ngModel)]="demande.role" name="role">
+                                  <input type="hidden" id="eventInput4" class="form-control" [(ngModel)]="etat"  name="etat">
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-dark" (click)="modal.close('Save click')">Confirmer</button>
+                                </div>
+                              </ng-template>
+                              <button class="btn btn-success" (click)="open(mymodal,demande,'confirmer')">Confirmer</button>
+                              <button class="btn btn-danger" (click)="open(mymodal,demande,'reporter')">Reporter</button>
+                             
+                            </td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+<!--Extended Table Ends-->
+<!--Shopping cart starts-->
+
+<!--Shopping cart ends-->
+      </div>
+    </div>
+  </div>
+
+ 
+</div>
+

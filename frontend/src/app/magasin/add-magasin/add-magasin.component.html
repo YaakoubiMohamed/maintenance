@@ -1,0 +1,84 @@
+<div class="main-panel">
+  <div class="main-content">
+    <div class="content-wrapper">
+      <div class="container-fluid"><!--Extended Table starts-->
+        <div class="row">
+          <div class="col-12">
+            <h2 class="content-header">Liste Employees</h2>
+          </div>
+        </div>
+        <div class="row match-height">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap bar-warning">
+                  <h4 class="card-title" id="basic-layout-form-center">Event Registration</h4>
+                </div>
+                
+              </div>
+              <div class="card-body">
+                <div class="px-3">
+                  <form class="form" [formGroup]="magasinForm" (ngSubmit)="onSubmit()">
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-6">
+                        <div class="form-body">
+                          
+                          <div class="form-group">
+                            <label for="eventInput1"> Code</label>
+                            <input type="text" formControlName="code" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.code.errors }" />
+                            <div *ngIf="submitted && f.code.errors" class="invalid-feedback">
+                                <div *ngIf="f.code.errors.required">code is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput2">Nom</label>
+                            <input type="text" formControlName="nom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nom.errors }" />
+                            <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                                <div *ngIf="f.nom.errors.required">nom is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput3">Prix</label>
+                            <input type="number" formControlName="prix" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.prix.errors }" />
+                            <div *ngIf="submitted && f.prix.errors" class="invalid-feedback">
+                                <div *ngIf="f.prix.errors.required">prix is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput4">Date entre</label>
+                            <input type="date" formControlName="date_entre" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date_entre.errors }" />
+                            <div *ngIf="submitted && f.date_entre.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_entre.errors.required">date_entre is required</div>
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="eventInput5">Date sortie</label>
+                            <input type="date" formControlName="date_sortie" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date_sortie.errors }" />
+                            <div *ngIf="submitted && f.date_sortie.errors" class="invalid-feedback">
+                                <div *ngIf="f.date_sortie.errors.required">date_sortie is required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-actions center">
+                      <a [routerLink]="['/magasins']" class="btn btn-danger mr-1">
+                        <i class="icon-trash"></i> Annuler
+                      </a>
+                      <button class="btn btn-primary mr-1" >Ajouter</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
